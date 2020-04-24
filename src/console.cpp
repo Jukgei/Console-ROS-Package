@@ -40,10 +40,10 @@ void console::consoleNode::PanelThread(){
     const std::vector<float> actionAttitude1 {0.0,0.0,0.0};
 
     const std::vector<float> actionPosition2 {0.02828,0.43488,0.0};
-    const std::vector<float> actionAttitude2 {30.0,0.0,0.0};
+    const std::vector<float> actionAttitude2 {20.0,0.0,0.0};
 
     const std::vector<float> actionPosition3 {0.02828,0.43488,0.0};
-    const std::vector<float> actionAttitude3 {-30.0,0.0,0.0};
+    const std::vector<float> actionAttitude3 {-20.0,0.0,0.0};
 
     Console::setpoint sep;
 
