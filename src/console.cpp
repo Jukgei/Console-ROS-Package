@@ -40,11 +40,19 @@ void console::consoleNode::PanelThread(){
     const std::vector<float> actionAttitude1 {0.0,0.0,0.0};
 
     const std::vector<float> actionPosition2 {0.02828,0.43488,0.0};
-    const std::vector<float> actionAttitude2 {20.0,0.0,0.0};
+    const std::vector<float> actionAttitude2 {25.0,0.0,0.0};
 
     const std::vector<float> actionPosition3 {0.02828,0.43488,0.0};
-    const std::vector<float> actionAttitude3 {-20.0,0.0,0.0};
+    const std::vector<float> actionAttitude3 {-25.0,0.0,0.0};
 
+    const std::vector<float> actionPosition4 {0.0019,0.3852,0.0};
+    const std::vector<float> actionAttitude4 {0.0,0.0,0.0};
+
+    const std::vector<float> actionPosition5 {0.0019,0.3852,0.0};
+    const std::vector<float> actionAttitude5 {25.0,0.0,0.0};
+
+    const std::vector<float> actionPosition6 {0.0019,0.3852,0.0};
+    const std::vector<float> actionAttitude6 {-25.0,0.0,0.0};
     Console::setpoint sep;
 
     while(ros::ok()){
@@ -75,6 +83,27 @@ void console::consoleNode::PanelThread(){
                 std::cout<<"Action three"<<std::endl;
                 break;
             
+        case '4':
+                sep.position = actionPosition4;
+                sep.attitude = actionAttitude4;
+                this->SetPointPublisher.publish(sep);
+                std::cout<<"Action three"<<std::endl;
+                break;
+        
+        case '5':
+                sep.position = actionPosition5;
+                sep.attitude = actionAttitude5;
+                this->SetPointPublisher.publish(sep);
+                std::cout<<"Action three"<<std::endl;
+                break;
+
+        case '6':
+                sep.position = actionPosition6;
+                sep.attitude = actionAttitude6;
+                this->SetPointPublisher.publish(sep);
+                std::cout<<"Action three"<<std::endl;
+                break;
+        
         case 'g':
                 std::cout<<"Grasp"<<std::endl;
                 break;
