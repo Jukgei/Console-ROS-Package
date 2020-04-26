@@ -36,9 +36,12 @@ void console::consoleNode::InitPanelThread(){
 
 void console::consoleNode::PanelThread(){
     ros::Rate LoopRate(10);   
-    const std::vector<float> actionPosition1 {0.02828,0.43488,0.0};
-    const std::vector<float> actionAttitude1 {0.0,0.0,0.0};
+    //const std::vector<float> actionPosition1 {0.02828,0.43488,0.0};
+    //const std::vector<float> actionAttitude1 {0.0,0.0,0.0};
 
+    const std::vector<float> actionPosition1 {0.0,0.4347,0.0};
+    const std::vector<float> actionAttitude1 {0.0,0.0,0.0};
+    
     const std::vector<float> actionPosition2 {0.02828,0.43488,0.0};
     const std::vector<float> actionAttitude2 {25.0,0.0,0.0};
 
@@ -58,6 +61,7 @@ void console::consoleNode::PanelThread(){
     const std::vector<float> actionAttitude0 {-25.0,0.0,1000.0};
 
     Console::setpoint sep;
+    Console::gripper gr;
 
     while(ros::ok()){
         imshow(DisplayName, backGround);
@@ -100,7 +104,7 @@ void console::consoleNode::PanelThread(){
                 this->SetPointPublisher.publish(sep);
                 std::cout<<"Action five"<<std::endl;
                 break;
-
+        
         case '6':
                 sep.position = actionPosition6;
                 sep.attitude = actionAttitude6;
@@ -114,6 +118,23 @@ void console::consoleNode::PanelThread(){
                 this->SetPointPublisher.publish(sep);
                 std::cout<<"reset"<<std::endl;
                 break;
+        
+        case 'b':
+                gr.GripSta = 0x00;
+                this->GripperPublisher.publish(gr);
+                std::cout<<"grasp"<<std::endl;
+                break;
+        case 'n':
+                gr.GripSta = 0x01;
+                this->GripperPublisher.publish(gr);
+                std::cout<<"loop"<<std::endl;
+                break;
+        case 'm':
+                gr.GripSta = 0xff;
+                this->GripperPublisher.publish(gr);
+                std::cout<<"stop"<<std::endl;
+                break;
+
         case 'g':
                 std::cout<<"Grasp"<<std::endl;
                 break;

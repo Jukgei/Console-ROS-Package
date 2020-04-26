@@ -21,6 +21,7 @@ public:
 
 
 private:
+
     ros::Publisher GripperPublisher;
     ros::Publisher SetPointPublisher;
     ros::Subscriber ArmControlSubscriber;

@@ -1,1 +1,1 @@
-uint8 Gripper
+uint8 GripSta
